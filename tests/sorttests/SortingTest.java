@@ -27,7 +27,7 @@ public class SortingTest {
     final int UPPER_BOUND = 100000;
 
     private enum SortingMethod {
-        BUBBLE, MERGE, QUICK, SELECTION, INSERTION
+        BUBBLE, MERGE, QUICK, SELECTION, INSERTION, HEAP
     }
 
     private boolean runSort(ArrayList<Integer> theArray, SortingMethod sortingMethod) {
@@ -47,6 +47,9 @@ public class SortingTest {
             case INSERTION:
                 InsertionSort.sort(theArray);
                 break;
+            case HEAP:
+                HeapSort.sort(theArray);
+                break;
             default:
                 return false;
         }
@@ -64,6 +67,8 @@ public class SortingTest {
         runFullSortSequence(theArray, SortingMethod.SELECTION);
 
         runFullSortSequence(theArray, SortingMethod.INSERTION);
+
+        runFullSortSequence(theArray, SortingMethod.HEAP);
     }
 
     @SuppressWarnings("unchecked")
