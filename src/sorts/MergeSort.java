@@ -61,6 +61,7 @@ public class MergeSort {
             globalLocation++;
         }
 
+        //does deep copy of new array into the persistent array
         for (int i = LEFT; i <= RIGHT; i++) {
             theArray.set(i, mergedArray.get(i));
         }

@@ -10,7 +10,21 @@ import java.util.Collections;
 public class SelectionSort {
 
     public static void sort(ArrayList<Integer> theArray) {
-        Collections.sort(theArray);
+        //Collections.sort(theArray);
+
+        int lowPos = 0;
+
+        for (int i = 0; i < theArray.size(); i++) {
+
+            lowPos = i;
+
+            for (int j = i + 1; j < theArray.size(); j++) {
+                if (theArray.get(j) < theArray.get(lowPos))
+                    lowPos = j;
+            }
+
+            swap(theArray, i, lowPos);
+        }
     }
 
     public static void swap(ArrayList<Integer> theArray, int pos1, int pos2) {

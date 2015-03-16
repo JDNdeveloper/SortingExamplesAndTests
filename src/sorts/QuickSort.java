@@ -11,6 +11,8 @@ public class QuickSort {
 
     public static void sort(ArrayList<Integer> theArray) {
         Collections.sort(theArray);
+
+
     }
 
     public static void swap(ArrayList<Integer> theArray, int pos1, int pos2) {
