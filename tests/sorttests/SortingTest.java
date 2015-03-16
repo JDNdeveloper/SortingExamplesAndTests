@@ -19,13 +19,13 @@ import static org.junit.Assert.*;
  */
 public class SortingTest {
 
-    private final int NUMBER_OF_TEST_INPUTS = 1000;
+    private final int NUMBER_OF_TEST_INPUTS = 100;
     private final int NUMBER_OF_ARRAY_RANDOMIZES = 50;
 
     private Random rand = new Random();
 
     //generate test arrays constants
-    final int SIZE = 10000;
+    final int SIZE = 1000;
     final int LOWER_BOUND = -100000;
     final int UPPER_BOUND = 100000;
 
