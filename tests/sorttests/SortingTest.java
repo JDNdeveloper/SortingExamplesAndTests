@@ -1,10 +1,7 @@
 package sorttests;
 
 import org.junit.Test;
-import sorts.BubbleSort;
-import sorts.MergeSort;
-import sorts.QuickSort;
-import sorts.SelectionSort;
+import sorts.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,7 +27,7 @@ public class SortingTest {
     final int UPPER_BOUND = 100000;
 
     private enum SortingMethod {
-        BUBBLE, MERGE, QUICK, SELECTION
+        BUBBLE, MERGE, QUICK, SELECTION, INSERTION
     }
 
     private boolean runSort(ArrayList<Integer> theArray, SortingMethod sortingMethod) {
@@ -47,6 +44,9 @@ public class SortingTest {
             case SELECTION:
                 SelectionSort.sort(theArray);
                 break;
+            case INSERTION:
+                InsertionSort.sort(theArray);
+                break;
             default:
                 return false;
         }
@@ -62,6 +62,8 @@ public class SortingTest {
         runFullSortSequence(theArray, SortingMethod.QUICK);
 
         runFullSortSequence(theArray, SortingMethod.SELECTION);
+
+        runFullSortSequence(theArray, SortingMethod.INSERTION);
     }
 
     @SuppressWarnings("unchecked")
