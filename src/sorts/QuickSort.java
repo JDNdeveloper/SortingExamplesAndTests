@@ -22,7 +22,8 @@ public class QuickSort {
     public static void quickSort(ArrayList<Integer> theArray, final int LEFT, final int RIGHT) {
         if (RIGHT - LEFT < 1) return;
 
-        int partitionPosition = partition(theArray, LEFT, RIGHT);
+        //int partitionPosition = partition(theArray, LEFT, RIGHT);
+        int partitionPosition = partitionInPlace(theArray, LEFT, RIGHT);
 
         quickSort(theArray, LEFT, partitionPosition - 1);
         quickSort(theArray, partitionPosition + 1, RIGHT);
@@ -65,6 +66,28 @@ public class QuickSort {
         }
 
         return pivot;
+    }
+
+    public static int partitionInPlace(ArrayList<Integer> theArray, final int LEFT, final int RIGHT) {
+
+        final int MIDDLE = (LEFT + RIGHT) / 2;
+        int pivotValue = medianOfThree(theArray.get(LEFT), theArray.get(MIDDLE), theArray.get(RIGHT));
+        int pivot = getPivotPositionFromValue(theArray, LEFT, MIDDLE, RIGHT, pivotValue);
+
+        swap(theArray, pivot, RIGHT);
+
+        int storeIndex = LEFT;
+
+        for (int i = LEFT; i <= RIGHT - 1; i++) {
+            if (theArray.get(i) < pivotValue) {
+                swap(theArray, i, storeIndex);
+                storeIndex++;
+            }
+        }
+
+        swap(theArray, storeIndex, RIGHT);
+
+        return storeIndex;
     }
 
     public static int getPivotPositionFromValue(ArrayList<Integer> theArray, int pos1, int pos2, int pos3, int pivotValue) {
