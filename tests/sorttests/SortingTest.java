@@ -58,17 +58,9 @@ public class SortingTest {
     }
 
     private void runAllSorts(ArrayList<Integer> theArray) {
-        runFullSortSequence(theArray, SortingMethod.BUBBLE);
-
-        runFullSortSequence(theArray, SortingMethod.MERGE);
-
-        runFullSortSequence(theArray, SortingMethod.QUICK);
-
-        runFullSortSequence(theArray, SortingMethod.SELECTION);
-
-        runFullSortSequence(theArray, SortingMethod.INSERTION);
-
-        runFullSortSequence(theArray, SortingMethod.HEAP);
+        for (SortingMethod sortingMethod : SortingMethod.values()) {
+            runFullSortSequence(theArray, sortingMethod);
+        }
     }
 
     @SuppressWarnings("unchecked")
