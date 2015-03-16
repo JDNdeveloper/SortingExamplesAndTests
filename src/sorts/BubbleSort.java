@@ -1,7 +1,6 @@
 package sorts;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Created by Jayden Navarro on 3/15/2015.
@@ -10,7 +9,6 @@ import java.util.Collections;
 public class BubbleSort {
 
     public static void sort(ArrayList<Integer> theArray) {
-        //Collections.sort(theArray);
 
         for (int i = 0; i < theArray.size(); i++) {
             for (int j = 1; j < theArray.size() - i; j++) {

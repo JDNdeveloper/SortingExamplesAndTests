@@ -3,7 +3,6 @@ package sorts;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import static org.junit.Assert.*;
 
@@ -14,7 +13,6 @@ import static org.junit.Assert.*;
 public class QuickSort {
 
     public static void sort(ArrayList<Integer> theArray) {
-        //Collections.sort(theArray);
 
         quickSort(theArray, 0, theArray.size() - 1);
     }
