@@ -10,6 +10,59 @@ import java.util.Collections;
 public class MergeSort {
 
     public static void sort(ArrayList<Integer> theArray) {
-        Collections.sort(theArray);
+        //Collections.sort(theArray);
+
+        mergeSort(theArray, 0, theArray.size()-1);
+    }
+
+    public static void mergeSort(ArrayList<Integer> theArray, final int LEFT, final int RIGHT) {
+        if (RIGHT - LEFT < 1) return;
+
+        final int MIDDLE = (LEFT + RIGHT) / 2;
+
+        mergeSort(theArray, LEFT, MIDDLE);
+        mergeSort(theArray, MIDDLE + 1, RIGHT);
+
+        merge(theArray, LEFT, RIGHT);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static void merge(ArrayList<Integer> theArray, final int LEFT, final int RIGHT) {
+        final int MIDDLE = (LEFT + RIGHT) / 2;
+
+        ArrayList<Integer> mergedArray = (ArrayList<Integer>) theArray.clone();
+
+        int leftPos = LEFT;
+        int rightPos = MIDDLE + 1;
+
+        int globalLocation = LEFT;
+
+        while (leftPos <= MIDDLE && rightPos <= RIGHT) {
+            if (theArray.get(leftPos) < theArray.get(rightPos)) {
+                mergedArray.set(globalLocation, theArray.get(leftPos));
+                leftPos++;
+            } else {
+                mergedArray.set(globalLocation, theArray.get(rightPos));
+                rightPos++;
+            }
+
+            globalLocation++;
+        }
+
+        for (; leftPos <= MIDDLE; leftPos++) {
+            mergedArray.set(globalLocation, theArray.get(leftPos));
+
+            globalLocation++;
+        }
+
+        for (; rightPos <= RIGHT; rightPos++) {
+            mergedArray.set(globalLocation, theArray.get(rightPos));
+
+            globalLocation++;
+        }
+
+        for (int i = LEFT; i <= RIGHT; i++) {
+            theArray.set(i, mergedArray.get(i));
+        }
     }
 }

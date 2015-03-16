@@ -25,7 +25,7 @@ public class SortingTest {
     private Random rand = new Random();
 
     //generate test arrays constants
-    final int SIZE = 1000;
+    final int SIZE = 100;
     final int LOWER_BOUND = -100000;
     final int UPPER_BOUND = 100000;
 
@@ -67,10 +67,13 @@ public class SortingTest {
     @SuppressWarnings("unchecked")
     private void runFullSortSequence(ArrayList<Integer> theArray, SortingMethod sortingMethod) {
         ArrayList<Integer> sortingArray = (ArrayList<Integer>) theArray.clone();
+        ArrayList<Integer> properSortedArray = (ArrayList<Integer>) theArray.clone();
+
+        Collections.sort(properSortedArray);
 
         runSort(sortingArray, sortingMethod);
 
-        assertTrue(sortingMethod.name() + ": Arrays are not equal", checkIfSorted(theArray, sortingArray));
+        assertEquals(sortingMethod.name() + ": Arrays are not equal", properSortedArray, sortingArray);
     }
 
     private void randomizeTestArray(ArrayList<Integer> theArray) {
@@ -109,6 +112,7 @@ public class SortingTest {
     }
 
     @SuppressWarnings("unchecked")
+    //no longer used
     private boolean checkIfSorted(ArrayList<Integer> theArray, ArrayList<Integer> actual) {
         ArrayList<Integer> originalArray = (ArrayList<Integer>) theArray.clone();
 
