@@ -76,7 +76,7 @@ public class QuickSort {
 
         int storeIndex = LEFT;
 
-        for (int i = LEFT; i <= RIGHT - 1; i++) {
+        for (int i = LEFT; i < RIGHT; i++) {
             if (theArray.get(i) < pivotValue) {
                 swap(theArray, i, storeIndex);
                 storeIndex++;
